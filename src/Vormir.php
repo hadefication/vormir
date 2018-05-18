@@ -28,17 +28,20 @@ class Vormir
      */
     protected $renderer;
 
+    /**
+     * Constructor
+     */
     public function __construct() {
         $this->renderer = new Renderer(new Node(
-            config()->get('vormir.node.bin_path'),
-            config()->get('vormir.node.temp_path')
+            config()->get('ssr.node.bin_path'),
+            config()->get('ssr.node.temp_path')
         ));
     }
 
     /**
      * Payload
      *
-     * @param array|object $payload
+     * @param array|object $payload             the data payload to include
      * @return self
      */
     public function payload($payload): self
@@ -50,7 +53,7 @@ class Vormir
     /**
      * Set env
      *
-     * @param array $env
+     * @param array $env            the additional environment variables to load to Node.js
      * @return self
      */
     public function env($env = []): self
@@ -62,7 +65,7 @@ class Vormir
     /**
      * Render script
      *
-     * @param string $entry
+     * @param string $entry             the JavaScript file entry to render
      * @return string
      */
     public function render($entry)
@@ -73,7 +76,7 @@ class Vormir
                                     'VUE_ENV' => "server", 
                                     'NODE_ENV' => "production"
                                 ], $this->env))
-                                ->entry(public_path("js/{$entry}.js"))
+                                ->entry(config()->get('ssr.js_path') . "/{$entry}")
                                 ->render();
     }
 }

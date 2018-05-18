@@ -7,7 +7,7 @@ class VormirBladeDirective
     /**
      * Renderer container
      *
-     * @var Ssr
+     * @var Vormir
      */
     protected  $ssr;
 
@@ -16,7 +16,7 @@ class VormirBladeDirective
      *
      * @param Ssr $ssr
      */
-    public function __construct(Ssr $ssr) {
+    public function __construct(Vormir $ssr) {
         $this->ssr = $ssr;
     }
 
@@ -30,6 +30,8 @@ class VormirBladeDirective
      */
     public function render($entry, $payload = [], $env = [])
     {
-        return $this->ssr->env($env)->payload($payload)->render($entry);
+        return $this->ssr->env($env)
+                        ->payload($payload)
+                        ->render($entry);
     }
 }
