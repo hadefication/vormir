@@ -30,8 +30,8 @@ class Vormir
 
     public function __construct() {
         $this->renderer = new Renderer(new Node(
-            config()->get('vormir.node.bin'),
-            config()->get('vormir.node.temp')
+            config()->get('vormir.node.bin_path'),
+            config()->get('vormir.node.temp_path')
         ));
     }
 
