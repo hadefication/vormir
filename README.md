@@ -6,7 +6,7 @@ Also, be sure to check this [article](https://vuejsdevelopers.com/2017/11/06/vue
 
 ## Installation
 1. Add this package to your Laravel applications by running `composer require hadefication/vormir`
-2. Publish the config file by running `php artisan vendor:publish --provider="BeyondCode\Credentials\CredentialsServiceProvider" --tag="config"` or `php artisan vendor:publish` and enter the number of this package showed in the console.
+2. Publish the config file by running `php artisan vendor:publish --provider="Hadefication\Vormir\VormirServiceProvider" --tag="config"` or `php artisan vendor:publish` and enter the number of this package showed in the console.
 3. Locate your Node.js bin path and add it to your `.env` file as `SSR_NODE_BIN_PATH`.
-4. Start mixing (Laravel Mix) or start building if you have your own build workflow. Your build process should export two entry files, one that will be used for the client/web and one is for the server (ssr). The server entry file is the one that you will feed into the @ssr directive.
+4. Start mixing (Laravel Mix) or start building if you have your own build workflow. The build process should export two entry files, one that will be used for the client/web and one is for the server (ssr). The server entry file is the one that you will feed into the @ssr directive.
 5. Add `@ssr('path/to/your/entry-server.js', $payload, $moreEnv)` to you blade and that's it.
