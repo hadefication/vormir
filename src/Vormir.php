@@ -70,13 +70,13 @@ class Vormir
      */
     public function render($entry)
     {
-        return $this->renderer->debug()
-                                ->context('payload', $this->payload)
-                                ->env(array_merge([
-                                    'VUE_ENV' => "server", 
-                                    'NODE_ENV' => "production"
-                                ], $this->env))
-                                ->entry(config()->get('ssr.js_path') . "/{$entry}")
-                                ->render();
+        return $this->renderer->enabled(config()->get('ssr.enabled', true))
+                            ->debug(config()->get('ssr.debug', true))
+                            ->context('payload', $this->payload)
+                            ->env(array_merge(config()->get('ssr.env'), [
+                                'NODE_ENV' => "production"
+                            ], $this->env))
+                            ->entry(config()->get('ssr.js_path') . "/{$entry}")
+                            ->render();
     }
 }
