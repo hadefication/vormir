@@ -20,6 +20,13 @@ class Vormir
      * @var array|object
      */
     protected $payload;
+
+    /**
+     * Fallback content container
+     *
+     * @var string
+     */
+    protected $content = '';
     
     /**
      * Renderer container
@@ -63,6 +70,18 @@ class Vormir
     }
 
     /**
+     * Fallback render if anything goes bad
+     *
+     * @param string $content
+     * @return self
+     */
+    public function fallbackString($content = ''): self
+    {
+        $this->content = $content;
+        return $this;
+    }
+
+    /**
      * Render script
      *
      * @param string $entry             the JavaScript file entry to render
@@ -77,6 +96,7 @@ class Vormir
                                 'NODE_ENV' => "production"
                             ], $this->env))
                             ->entry(config()->get('ssr.js_path') . "/{$entry}")
+                            ->fallback($this->content)
                             ->render();
     }
 }

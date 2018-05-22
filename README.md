@@ -150,3 +150,9 @@ console.log(renderToString(<App />));
     <body>
 </html>
 ```
+
+## Credits
+- [All Contributors](https://github.com/hadefication/vormir/contributors)
+
+## License
+The MIT License (MIT). Please see [License File](https://github.com/hadefication/vormir/blob/master/LICENSE) for more information.
