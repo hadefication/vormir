@@ -143,7 +143,10 @@ console.log(renderToString(<App />));
 
 ```
 // Blade
-
-<div id="root">@ssr('server-entry.js')</div>
-<script src="{{ mix('js/client-entry.js') }}"></script>
+<html>
+    <body>
+        <div id="root">@ssr('server-entry.js')</div>
+        <script src="{{ mix('js/client-entry.js') }}"></script>
+    <body>
+</html>
 ```
