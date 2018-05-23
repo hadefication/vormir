@@ -90,7 +90,7 @@ import app from './path/to/App.js';
 // yarn add vue-server-renderer or npm i vue-server-renderer
 import renderVueComponentToString from 'vue-server-renderer/basic';
 
-renderVueComponentToString(app, (err, res) => console.log(res));
+renderVueComponentToString(app, (err, res) => dispatch(res));
 ```
 
 ```
@@ -138,7 +138,7 @@ import React from 'react';
 import App from './components/App';
 import { renderToString } from 'react-dom/server';
 
-console.log(renderToString(<App />));
+dispatch(renderToString(<App />));
 ```
 
 ```
@@ -153,6 +153,7 @@ console.log(renderToString(<App />));
 
 ## Credits
 - [All Contributors](https://github.com/hadefication/vormir/contributors)
+- [Jose Lo](https://github.com/jdltechworks)
 
 ## License
 The MIT License (MIT). Please see [License File](https://github.com/hadefication/vormir/blob/master/LICENSE) for more information.
