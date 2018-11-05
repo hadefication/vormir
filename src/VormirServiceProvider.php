@@ -17,6 +17,14 @@ class VormirServiceProvider extends ServiceProvider
             return "<?php echo app('" . VormirBladeDirective::class . "')->render($expression); ?>";
         });
 
+        Blade::directive('css', function ($expression) {
+            return "<?php echo app('" . VormirManifestBladeDirective::class . "')->css($expression); ?>";
+        });
+
+        Blade::directive('js', function ($expression) {
+            return "<?php echo app('" . VormirManifestBladeDirective::class . "')->js($expression); ?>";
+        });
+
         $this->publishes([
             __DIR__ . '/config.php' => config_path('ssr.php'),
         ], 'config');
